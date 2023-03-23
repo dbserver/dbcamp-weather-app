@@ -38,6 +38,10 @@ Você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git]
 ````
  $ git clone https://github.com/dbserver/dbcamp-weather-api
 ````
+### Instalando os módulos
+````
+npm install
+````
 ### Rodando a api
 ````
 json-server openweathermap.json
