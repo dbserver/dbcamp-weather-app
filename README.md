@@ -71,6 +71,7 @@ http://localhost:3000/cities?name=Porto Alegre
 
 ## 🎨 Layout
 O layout da aplicação está disponível no Figma:
+
 <a href="https://www.figma.com/file/OdrhMSRRYMJ9W0Zoxxz7E2/Weather-App-(Community)?node-id=0-1&t=nOcHkKsdRx68GWUl-0">
   <img alt="Made by DB" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
 </a>
