@@ -1,46 +1,72 @@
-# Getting Started with Create React App
+<p align="center">
+ <img alt="GitHub top language" src="https://img.shields.io/github/languages/top/dbserver/dbcamp-weather-app">
+<img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/dbserver/dbcamp-weather-app">
+  <a href="https://github.com/dbserver/dbcamp-weather-app/commits/main">
+  <img alt="GitHub last commit (branch)" src="https://img.shields.io/github/last-commit/dbserver/dbcamp-weather-app/main">
+  </a>
+   <img alt="License" src="https://img.shields.io/badge/license-MIT-brightgreen">
+  <a href="https://db.tec.br/">
+    <img alt="Feito pela DB" src="https://img.shields.io/badge/feito%20por-DB-%237519C1">
+  </a>
+</p>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Weather App
+## 💻 Sobre o projeto
 
-## Available Scripts
+🌤 **Weather App** - apresenta a informação metereológica atual e dos próximos 07 dias, das cidades:
+- Porto Alegre / RS
+- Charqueadas / RS
+- São Luiz do Maranhão / MA
+- Rio Grande /  RS
+- Madre de Deus / BA
 
-In the project directory, you can run:
+O objetivo desse desafio é oportunizar o aprendizado:
+- Estilização utilizando css
+- React com typescript
+- Componentização
+- Consumo de API Rest
+- Controle de Estado com  a utilização de Context API
 
-### `npm start`
+## Pré-requisitos
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
+ Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 🔂  Rodando o Back End (API)
 
-### `npm test`
+### Clone o repositório
+````
+ $ git clone https://github.com/dbserver/dbcamp-weather-api
+````
+### Rodando a api
+````
+json-server openweathermap.json
+````
+### Entrypoint API
+````
+http://localhost:3000
+````
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### GET all cities
+Retorna uma lista de Cidades e suas previsões metereológicas.
+````
+http://localhost:3000/cities
+````
 
-### `npm run build`
+### GET all citie by name
+Retorna uma cidade e suas previsões metereológicas.
+````
+http://localhost:3000/cities?name=Porto Alegre
+````
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Features
+- [x] Pesquisa de previsão metereolólica a partir do nome da cidade 
+- [x] Apresentação da previsão metereológica do dia atual
+- [x] Apresentação da previsão metereológica dos próximos 07 dias
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 🎨 Layout
+O layout da aplicação está disponível no Figma:
+<a href="https://www.figma.com/file/OdrhMSRRYMJ9W0Zoxxz7E2/Weather-App-(Community)?node-id=0-1&t=nOcHkKsdRx68GWUl-0">
+  <img alt="Made by DB" src="https://img.shields.io/badge/Acessar%20Layout%20-Figma-%2304D361">
+</a>
