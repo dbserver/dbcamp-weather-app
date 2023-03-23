@@ -36,7 +36,7 @@ Você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git]
 
 ### Clone o repositório
 ````
- $ git clone https://github.com/dbserver/dbcamp-weather-api
+ $ git clone https://github.com/dbserver/dbcamp-weather-mock-api.git
 ````
 ### Instalando os módulos
 ````
