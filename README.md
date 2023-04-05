@@ -36,7 +36,7 @@ Você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git]
 - [x] Apresentação de uma lista de previsão metereológica cadastradas
 - [x] Cadastro de previsão metereológica 
 - [x] Edição de previsão metereológica
-- [x] Exlusão de previsão metereológica
+- [x] Exclusão de previsão metereológica
 
 
 ## 🎨 Layout
