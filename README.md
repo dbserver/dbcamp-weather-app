@@ -20,7 +20,8 @@ O objetivo desse desafio é oportunizar o aprendizado:
 - React com typescript
 - Componentização
 - Consumo de API Rest
-- Controle de Estado com  a utilização de Context API
+- Context API
+- Hooks
 
 ## Pré-requisitos
 
