@@ -13,12 +13,7 @@
 # Weather App
 ## 💻 Sobre o projeto
 
-🌤 **Weather App** - apresenta a informação metereológica atual e dos próximos 07 dias, das cidades:
-- Porto Alegre / RS
-- Charqueadas / RS
-- São Luiz do Maranhão / MA
-- Rio Grande /  RS
-- Madre de Deus / BA
+🌤 **Weather App** - apresenta a informação metereológica atual e dos próximos 07 dias.
 
 O objetivo desse desafio é oportunizar o aprendizado:
 - Estilização utilizando css
@@ -32,41 +27,15 @@ O objetivo desse desafio é oportunizar o aprendizado:
 Você vai precisar ter instalado em sua máquina as seguintes ferramentas: [Git](https://git-scm.com), [Node.js](https://nodejs.org/en/).
  Além disto é bom ter um editor para trabalhar com o código como [VSCode](https://code.visualstudio.com/)
 
-### 🔂  Rodando o Back End (API)
-
-### Clone o repositório
-````
- $ git clone https://github.com/dbserver/dbcamp-weather-mock-api.git
-````
-### Instalando os módulos
-````
-npm install
-````
-### Rodando a api
-````
-json-server openweathermap.json
-````
-### Entrypoint API
-````
-http://localhost:3000
-````
-
-### GET all cities
-Retorna uma lista de Cidades e suas previsões metereológicas.
-````
-http://localhost:3000/cities
-````
-
-### GET all citie by name
-Retorna uma cidade e suas previsões metereológicas.
-````
-http://localhost:3000/cities?name=Porto Alegre
-````
 
 ## Features
 - [x] Pesquisa de previsão metereolólica a partir do nome da cidade 
 - [x] Apresentação da previsão metereológica do dia atual
 - [x] Apresentação da previsão metereológica dos próximos 07 dias
+- [x] Apresentação de uma lista de previsão metereológica cadastradas
+- [x] Cadastro de previsão metereológica 
+- [x] Edição de previsão metereológica
+- [x] Exlusão de previsão metereológica
 
 
 ## 🎨 Layout
