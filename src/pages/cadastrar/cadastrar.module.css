@@ -1,0 +1,51 @@
+.conteiner {
+  max-width: 90%;
+  margin: auto;
+}
+.form_box {
+  border-radius: 15px;
+  background: linear-gradient(
+    180deg,
+    rgba(149, 125, 205, 0.29) 0%,
+    #523d7f 100%
+  );
+  padding: 82px 17px 30px;
+  margin-top: 62px;
+}
+.content_input {
+  display: inline-block;
+}
+#cidadeBox{
+    margin-right: 200px;
+}
+
+.conteiner input,
+.conteiner select {
+  border-radius: 15px;
+  max-height: 57px;
+  font-size: 20px;
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  border: none;
+  color: white;
+  padding: 20px;
+}
+
+.conteiner select{
+  padding: 18px 20px;
+}
+
+.conteiner option {
+  font-size: 16px;
+  background-color: #957dcd;
+  border: none;
+  color: white;
+  padding-left: 20px;
+}
+.form_box{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+#tempoBox{
+    margin-right: 25px;
+}
