@@ -9,14 +9,14 @@
     rgba(149, 125, 205, 0.29) 0%,
     #523d7f 100%
   );
-  padding: 82px 17px 30px;
+  padding: 82px 53px 70px 17px;
   margin-top: 62px;
 }
-.content_input {
+.input_line {
   display: inline-block;
 }
-#cidadeBox{
-    margin-right: 200px;
+#cidadeBox {
+  margin-right: 200px;
 }
 
 .conteiner input,
@@ -30,7 +30,7 @@
   padding: 20px;
 }
 
-.conteiner select{
+.conteiner select {
   padding: 18px 20px;
 }
 
@@ -41,25 +41,58 @@
   color: white;
   padding-left: 20px;
 }
-.form_box{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.form_box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
-#tempoBox{
-    margin-right: 25px;
+#tempoBox {
+  margin-right: 25px;
 }
-.buttonsBox button{
+.buttonsBox button {
   padding: 22px 80px;
-  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
   border-radius: 100px;
   border: none;
   color: white;
   font-weight: 600;
   font-size: 24px;
 }
-.buttonsBox{
+.buttonsBox {
   margin-top: 50px;
   display: flex;
   justify-content: end;
+  gap: 40px;
+}
+
+.form_box input {
+  width: 50px;
+  text-align: center;
+}
+
+#precipitacao{
+  margin-right: 70px;
+}
+.coluna div{
+  margin-bottom: 25px;
+}
+
+@media (max-width:600px) {
+  .conteiner, .conteiner input, .conteiner select{
+    text-align: center;
+  }
+  .form, #precipitacao, #cidadeBox, #tempoBox, .coluna{
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .form_box{
+    padding: 30px 10px;
+  }
+  .input_line{
+    display: block;
+  }
+  .buttonsBox button{
+    padding: 10px 25px;
+  }
+  
 }

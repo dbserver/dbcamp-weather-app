@@ -1,52 +1,93 @@
+import { useState } from "react";
 import styles from "./cadastrar.module.css";
 import axios from "axios";
 
 export default function Cadastrar() {
+  const [cidade, setCidade] = useState("Salvador");
+  const [data, setData] = useState("");
+  const [tempo, setTempo] = useState("SOL");
+  const [turno, setTurno] = useState("DIA");
+  const [temperaturaMaxima, setTemperaturaMaxima] = useState<any>();
+  const [temperaturaMinima, setTemperaturaMinima] = useState<any>();
+  const [precipitacao, setPrecipitacao] = useState<any>();
+  const [umidade, setUmidade] = useState<any>();
+  const [ventos, setVentos] = useState<any>();
+
   async function post() {
     axios
       .post("http://localhost:4767/api/v1/meteorologia", {
-        cidade: "Madre de deus",
-        data: "2023-04-28",
-        tempo: "SOL",
-        turno: "DIA",
-        temperaturaMaxima: 0,
-        temperaturaMinima: 0,
-        precipitacao: 0,
-        umidade: 0,
-        velocidadeVentos: 0,
+        cidade: cidade,
+        data: data,
+        tempo: tempo,
+        turno: turno,
+        temperaturaMaxima: temperaturaMaxima,
+        temperaturaMinima: temperaturaMinima,
+        precipitacao: precipitacao,
+        umidade: umidade,
+        velocidadeVentos: ventos,
       })
-      .then(function (response:any) {
+      .then(function (response: any) {
         console.log(response);
         alert("Parabéns você cadastrou um registro");
       })
-      .catch(function (error:any) {
+      .catch(function (error: any) {
         console.error(error);
         alert("Infelizmente você não conseguiu cadastrar um registro");
       });
+  }
+
+  function handleSubmit(event: React.FormEvent) {
+    try {
+      event.preventDefault();
+      try {
+        post();
+      } catch {
+        alert("Ops, ocorreu um erro ao realizar seu cadastro.");
+      }
+    } catch {
+      alert("Ops, ocorreu um erro ao realizar seu cadastro.");
+    }
   }
 
   return (
     <div className={styles.conteiner}>
       <h1>Cadastro Meteorológico</h1>
 
-      <div className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <div className={styles.line}>
-          <div className={styles.content_input} id={styles.cidadeBox}>
+          <div className={styles.input_line} id={styles.cidadeBox}>
             <label htmlFor="">Cidade</label>
-            <input type="text" name="cidade" />
+            <input
+              required
+              type="text"
+              name="cidade"
+              value={cidade}
+              onChange={(event) => setCidade(event.target.value)}
+            />
           </div>
 
-          <div className={styles.content_input}>
+          <div className={styles.input_line}>
             <label htmlFor="">Data</label>
-            <input type="date" name="data" id="" />
+            <input
+              required
+              type="date"
+              name="data"
+              value={data}
+              onChange={(event) => setData(event.target.value)}
+            />
           </div>
         </div>
 
         <div className={styles.form_box}>
           <div className={styles.coluna}>
-            <div className={styles.content_input} id={styles.tempoBox}>
+            <div className={styles.input_line} id={styles.tempoBox}>
               <label htmlFor="">Tempo</label>
-              <select name="select" className={styles.inputBox}>
+              <select
+                name="select"
+                className={styles.inputBox}
+                value={tempo}
+                onChange={(event) => setTempo(event.target.value)}
+              >
                 <option value="SOL" selected>
                   Sol
                 </option>
@@ -57,9 +98,13 @@ export default function Cadastrar() {
               </select>
             </div>
 
-            <div className={styles.content_input}>
+            <div className={styles.input_line}>
               <label htmlFor="">Turno</label>
-              <select name="select">
+              <select
+                name="select"
+                value={turno}
+                onChange={(event) => setTurno(event.target.value)}
+              >
                 <option value="DIA" selected>
                   Manhã
                 </option>
@@ -69,26 +114,63 @@ export default function Cadastrar() {
           </div>
 
           <div className={styles.coluna}>
-            <label htmlFor="">Temperatura máxima</label>
-            <input type="number" name="temperaturaMaxima" id="" />
-            <label htmlFor="">Precipitação</label>
-            <input type="number" name="precipitacao" id="" />
-            <label htmlFor="">Humidade</label>
-            <input type="number" name="humidade" id="" />
+            <div>
+              <label htmlFor="">Temperatura máxima</label>
+              <input
+                required
+                type="number"
+                name="temperaturaMaxima"
+                value={temperaturaMaxima}
+                onChange={(event) => setTemperaturaMaxima(event.target.value)}
+              />
+            </div>
+            <div className={styles.input_line} id={styles.precipitacao}>
+              <label htmlFor="">Precipitação</label>
+              <input
+                required
+                type="number"
+                name="precipitacao"
+                value={precipitacao}
+                onChange={(event) => setPrecipitacao(event.target.value)}
+              />
+            </div>
+            <div className={styles.input_line}>
+              <label htmlFor="">Humidade</label>
+              <input
+                required
+                type="number"
+                name="humidade"
+                value={umidade}
+                onChange={(event) => setUmidade(event.target.value)}
+              />
+            </div>
           </div>
 
           <div className={styles.coluna}>
             <label htmlFor="">Temperatura mínima</label>
-            <input type="number" name="temperaturaMinima" id="" />
+            <input
+              required
+              type="number"
+              name="temperaturaMinima"
+              value={temperaturaMinima}
+              onChange={(event) => setTemperaturaMinima(event.target.value)}
+            />
             <label htmlFor="">Velocidade do vento</label>
-            <input type="number" name="velocidadeDoVento" id="" />
+            <input
+              required
+              type="number"
+              name="velocidadeDoVento"
+              value={ventos}
+              onChange={(event) => setVentos(event.target.value)}
+            />
           </div>
         </div>
-      </div>
-      <div className={styles.buttonsBox}>
-        <button>Cancelar</button>
-        <button onClick={post}>Cadastrar</button>
-      </div>
+
+        <div className={styles.buttonsBox}>
+          <button>Cancelar</button>
+          <button type="submit">Cadastrar</button>
+        </div>
+      </form>
     </div>
   );
 }
