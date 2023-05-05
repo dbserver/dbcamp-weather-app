@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styles from "./cadastrar.module.css";
 import axios from "axios";
+import { MeteorologicalService } from "../../services/api/meteorogical";
 
 export default function Cadastrar() {
   const [cidade, setCidade] = useState("Salvador");
@@ -13,37 +14,20 @@ export default function Cadastrar() {
   const [umidade, setUmidade] = useState<any>();
   const [ventos, setVentos] = useState<any>();
 
-  async function post() {
-    axios
-      .post("http://localhost:4767/api/v1/meteorologia", {
-        cidade: cidade,
-        data: data,
-        tempo: tempo,
-        turno: turno,
-        temperaturaMaxima: temperaturaMaxima,
-        temperaturaMinima: temperaturaMinima,
-        precipitacao: precipitacao,
-        umidade: umidade,
-        velocidadeVentos: ventos,
-      })
-      .then(function (response: any) {
-        console.log(response);
-        alert("Parabéns você cadastrou um registro");
-      })
-      .catch(function (error: any) {
-        console.error(error);
-        alert("Infelizmente você não conseguiu cadastrar um registro");
-      });
-  }
-
   function handleSubmit(event: React.FormEvent) {
+    event.preventDefault();
     try {
-      event.preventDefault();
-      try {
-        post();
-      } catch {
-        alert("Ops, ocorreu um erro ao realizar seu cadastro.");
-      }
+      MeteorologicalService.create(
+        cidade,
+        data,
+        tempo,
+        turno,
+        temperaturaMaxima,
+        temperaturaMinima,
+        precipitacao,
+        umidade,
+        ventos
+      );
     } catch {
       alert("Ops, ocorreu um erro ao realizar seu cadastro.");
     }
@@ -147,22 +131,26 @@ export default function Cadastrar() {
           </div>
 
           <div className={styles.coluna}>
-            <label htmlFor="">Temperatura mínima</label>
-            <input
-              required
-              type="number"
-              name="temperaturaMinima"
-              value={temperaturaMinima}
-              onChange={(event) => setTemperaturaMinima(event.target.value)}
-            />
-            <label htmlFor="">Velocidade do vento</label>
-            <input
-              required
-              type="number"
-              name="velocidadeDoVento"
-              value={ventos}
-              onChange={(event) => setVentos(event.target.value)}
-            />
+            <div>
+              <label htmlFor="">Temperatura mínima</label>
+              <input
+                required
+                type="number"
+                name="temperaturaMinima"
+                value={temperaturaMinima}
+                onChange={(event) => setTemperaturaMinima(event.target.value)}
+              />
+            </div>
+            <div>
+              <label htmlFor="">Velocidade do vento</label>
+              <input
+                required
+                type="number"
+                name="velocidadeDoVento"
+                value={ventos}
+                onChange={(event) => setVentos(event.target.value)}
+              />
+            </div>
           </div>
         </div>
 
