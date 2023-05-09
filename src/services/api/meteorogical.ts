@@ -1,16 +1,28 @@
 import axios from "axios";
 
 const getALL = async () => {
-
   try {
-    const response = await axios.get("http://localhost:4767/api/v1/meteorologia");
+    const response = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia"
+    );
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-const getByCity = (city: String) => {};
+const getByCity = async (city: String) => {
+
+  try {
+    const responseByCiry = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/"+city
+    );
+    console.log(responseByCiry.data.content)
+    return responseByCiry.data.content;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const create = (
   cidade: string,

@@ -3,27 +3,26 @@ import { MeteorologicalService } from "../../services/api/meteorogical";
 import MeteriologicalData from "../../interfaces/Meteorological";
 
 export default function Listar () {
-  const [meteorologicalRegisterList, setMeteorologicalRegisterList] = useState([]);
+  const [dataCityList, setDataCityList] = useState([]);
   
   useEffect(() => {
     const fetchData = async () => {
-      const result = await MeteorologicalService.getALL();
-      setMeteorologicalRegisterList(result);
+      const result = await MeteorologicalService.getByCity("salvador");
+      setDataCityList(result);
     };
     fetchData();
   }, []);
 
   return(
-    <h1>hello list</h1>
-    //  <div>
-    //   {meteorologicalRegisterList.map((item: MeteriologicalData ) => (
-    //     <div key={item.id}>
-    //       <h1>{item.cidade}</h1>
-    //       <h2>{item.tempo}</h2>
-    //       <p>{item.turno}</p>
-    //     </div>
-    //   ))}
-    // </div>
+     <div>
+      {dataCityList.map((item: MeteriologicalData ) => (
+        <div key={item.id}>
+          <h1>{item.cidade}</h1>
+          <h2>{item.data}</h2>
+          <p>{item.id}</p>
+        </div>
+      ))}
+    </div>
     
   )
 }
