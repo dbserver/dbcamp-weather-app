@@ -5,24 +5,16 @@ import styles from "./listar.module.css";
 
 export default function Listar() {
   const [dataCityList, setDataCityList] = useState([]);
-  const [cidade, setCidade] = useState("salvador");
+  const [cidade, setCidade] = useState("");
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await MeteorologicalService.getByCity(cidade);
-      setDataCityList(result);
-    };
-    fetchData();
-  }, []);
-
-  const findByCity = async() => {
+  const findByCity = async () => {
     const result = await MeteorologicalService.getByCity(cidade);
-    if (result != null){
+    if (result != null) {
       setDataCityList(result);
-    }else{
-      alert("Nenhum registro de " + cidade + " foi encontrado")
+    } else {
+      alert("Nenhum registro de " + cidade + " foi encontrado");
     }
-  }
+  };
 
   return (
     <main className={styles.conteiner}>
