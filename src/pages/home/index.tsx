@@ -1,9 +1,10 @@
+import MeteriologicalData from "../../interfaces/Meteorological";
 import { MeteorologicalService } from "../../services/api/meteorogical";
 import { useEffect, useState } from "react";
 
 export default function Home() {
   const [meteorologicalRegisterList, setMeteorologicalRegisterList] = useState([]);
-
+  
   useEffect(() => {
     const fetchData = async () => {
       const result = await MeteorologicalService.getALL();
@@ -13,8 +14,9 @@ export default function Home() {
   }, []);
 
   return (
+
     <div>
-      {meteorologicalRegisterList.map((item: any) => (
+      {meteorologicalRegisterList.map((item: MeteriologicalData ) => (
         <div key={item.id}>
           <h1>{item.cidade}</h1>
           <h2>{item.tempo}</h2>

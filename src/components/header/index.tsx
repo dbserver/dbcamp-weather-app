@@ -1,26 +1,31 @@
+import { useState } from "react";
 import styles from "./header.module.css";
-import { useNavigate } from 'react-router-dom';
-
+import { Link } from "react-router-dom";
 
 export default function Header() {
+  const [menuOpen, setMenuOpen] = useState(false)
 
+  const toggleMode = () =>{
+    setMenuOpen(!menuOpen)
+  }
+  
   function menuToggle() {
     document.getElementById("menu")?.classList.toggle("colapse");
   }
 
   return (
     <header className={styles.header}>
-      <nav>
+      <nav id="test">
         <button onClick={menuToggle}>| | |</button>
         <ul className={styles.menu} id="menu">
           <li>
-            Home
+            <Link to={"/"}>Home</Link>
           </li>
           <li>
-            Cadastrar
+            <Link to={"/cadastrar"}>Cadastrar</Link>
           </li>
           <li>
-            Listar
+            <Link to={"/listar"}>Listar</Link>
           </li>
         </ul>
       </nav>

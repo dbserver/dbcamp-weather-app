@@ -1,68 +1,75 @@
-.header{
-    background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
-    border-radius: 15px;
-    height: 70px;
-    max-width: 95%;
-    margin: auto;
-    padding-left: 20px;
-    box-sizing: border-box;
-}
-.header ul{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: left;
-    
-}
-.header ul li{
-    margin-top: 10px;
-    font-size: 32px;
-    font-weight: 600;
-    padding: 0 40px;
-    list-style-type: none;
-}
-.header ul li link:hover{
-    border-bottom: 2px solid white;
+.header {
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  border-radius: 15px;
+  height: 70px;
+  max-width: 95%;
+  margin: 10px auto 0;
+  box-sizing: border-box;
 }
 
-.header button{
-    display: none;
-    box-sizing: border-box;
-    width: 40px;
-    height: 40px;
-    border-radius: 100%;
-    border: none;
-    background-image: linear-gradient(to bottom, #352163 ,#331972 ,#33143C) ;
-    color: white;
-    rotate: 90deg;
-    font-weight: bold;
+.header li,
+.header a {
+  list-style-type: none;
+  text-decoration: none;
+  font-size: 32px;
+  color: white;
+  font-weight: 600;
+}
+
+.header nav {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  height: 100%;
+}
+
+.header ul {
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 40px;
+}
+
+.header button {
+  display: none;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  border: none;
+  background-color: #523d7f;
+  color: white;
+  rotate: 90deg;
+  font-weight: bold;
 }
 
 @media (max-width: 600px) {
-    .header button {
-        display: block;
-    }
+  .header nav {
+    justify-content: center;
+  }
+  .header button {
+    display: block;
+  }
+  .menu {
+    padding: 0;
+    display: block;
+    visibility: hidden;
+    position: absolute;
+    top: 100px;
+    left: 0;
+    background-color: #523d7f;
+    width: calc(100% - 50px);
+    height: 0px;
+    padding: 10px 0 0 50px;
+    z-index: 1000;
+    transition: 1s;
+    overflow-y: hidden;
+  }
 
-    .menu {
-        padding: 0;
-        display: block;
-        visibility: hidden;
-        position: absolute;
-        top: 100px;
-        left: 0;
-        background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);        width: calc(100% - 50px);
-        height: 0px;
-        padding: 10px 0 0 50px;
-        z-index: 1000;
-        transition: 1s;
-        overflow-y: hidden;
-    }
-
-    .menu>li,
-    .menu>div {
-        margin-top: 20px;
-    }
-
-    .menuOpen {
-        display: none;
-    }
+  .menu > li {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
 }

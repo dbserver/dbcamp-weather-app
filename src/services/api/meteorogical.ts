@@ -15,8 +15,8 @@ const getByCity = (city: String) => {};
 const create = (
   cidade: string,
   data: string,
-  tempo: string,
-  turno: string,
+  tempoDia: string,
+  tempoNoite: string,
   temperaturaMaxima: number,
   temperaturaMinima: number,
   precipitacao: number,
@@ -27,8 +27,8 @@ const create = (
     .post("http://localhost:4767/api/v1/meteorologia", {
       cidade: cidade,
       data: data,
-      tempo: tempo,
-      turno: turno,
+      tempoDia: tempoDia,
+      tempoNoite: tempoNoite,
       temperaturaMaxima: temperaturaMaxima,
       temperaturaMinima: temperaturaMinima,
       precipitacao: precipitacao,
