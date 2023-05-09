@@ -4,7 +4,7 @@ import axios from "axios";
 import { MeteorologicalService } from "../../services/api/meteorogical";
 
 export default function Cadastrar() {
-  const [cidade, setCidade] = useState("Salvador");
+  const [cidade, setCidade] = useState("salvador");
   const [data, setData] = useState("");
   const [tempoDia, setTempoDia] = useState("SOL");
   const [tempoNoite, setTempoNoite] = useState("CHUVA");
@@ -177,10 +177,12 @@ export default function Cadastrar() {
             </div>
           </div>
         </section>
+
         <div className={styles.buttonsBox}>
-          <button>Cancelar</button>
+          <button type="reset">Cancelar</button>
           <button type="submit">Cadastrar</button>
         </div>
+
       </form>
     </main>
   );

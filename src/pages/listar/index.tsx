@@ -5,14 +5,20 @@ import styles from "./listar.module.css";
 
 export default function Listar() {
   const [dataCityList, setDataCityList] = useState([]);
+  const [cidade, setCidade] = useState("salvador");
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await MeteorologicalService.getByCity("salvador");
+      const result = await MeteorologicalService.getByCity(cidade);
       setDataCityList(result);
     };
     fetchData();
   }, []);
+
+  const findByCity = async() => {
+    const result = await MeteorologicalService.getByCity(cidade);
+      setDataCityList(result);
+  }
 
   return (
     <main className={styles.conteiner}>
@@ -21,8 +27,12 @@ export default function Listar() {
         <div className={styles.inpt_box}>
           <label>Cidade</label>
           <div className={styles.inpt_style}>
-            <input type="text" />
-            <span id={styles.lupa_icon}></span>
+            <input
+              type="text"
+              value={cidade}
+              onChange={(event) => setCidade(event.target.value)}
+            />
+            <span onClick={findByCity} id={styles.lupa_icon}></span>
           </div>
         </div>
       </section>
@@ -35,7 +45,7 @@ export default function Listar() {
         </div>
 
         <div className={styles.list}>
-        {dataCityList.map((item: MeteriologicalData) => (
+          {dataCityList.map((item: MeteriologicalData) => (
             <div className={styles.elementList} key={item.id}>
               <h2>{item.cidade}</h2>
               <h2>{item.data}</h2>
