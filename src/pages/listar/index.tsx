@@ -17,7 +17,11 @@ export default function Listar() {
 
   const findByCity = async() => {
     const result = await MeteorologicalService.getByCity(cidade);
+    if (result != null){
       setDataCityList(result);
+    }else{
+      alert("Nenhum registro de " + cidade + " foi encontrado")
+    }
   }
 
   return (
