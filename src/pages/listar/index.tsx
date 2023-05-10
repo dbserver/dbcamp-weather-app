@@ -5,11 +5,24 @@ import styles from "./listar.module.css";
 
 export default function Listar() {
   const [dataCityList, setDataCityList] = useState([]);
-  const [cidade, setCidade] = useState("salvador");
+  const [cidade, setCidade] = useState("");
+
+  useEffect(() => {
+    findALL();
+  }, []);
 
   const findByCity = async () => {
     const result = await MeteorologicalService.getByCity(cidade);
-    if (result != null) {
+    if (result[0] != null) {
+      setDataCityList(result);
+    } else {
+      alert("Nenhum registro de " + cidade + " foi encontrado");
+    }
+  };
+
+  const findALL = async () => {
+    const result = await MeteorologicalService.getALL();
+    if (result[0] != null) {
       setDataCityList(result);
     } else {
       alert("Nenhum registro de " + cidade + " foi encontrado");
@@ -23,7 +36,7 @@ export default function Listar() {
   return (
     <main className={styles.conteiner}>
       <section className={styles.section1}>
-        <h1>Lista de Cidades</h1>
+        <h1 id={styles.title}>Lista de Cidades</h1>
         <div className={styles.inpt_box}>
           <label>Cidade</label>
           <div className={styles.inpt_style}>
@@ -48,7 +61,7 @@ export default function Listar() {
           {dataCityList.map((item: MeteriologicalData) => (
             <div className={styles.elementList} key={item.id}>
               <h2>{item.cidade}</h2>
-              <h2>{item.data}</h2>
+              <h2 className={styles.data}>{item.data}</h2>
               <div className={styles.icons}>
                 <span id={styles.edit_icon}></span>
                 <span id={styles.trash_icon} onClick={ () => deleteById(item.id)}></span>

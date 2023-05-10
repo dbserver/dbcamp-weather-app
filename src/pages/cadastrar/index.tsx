@@ -35,7 +35,7 @@ export default function Cadastrar() {
 
   return (
     <main className={styles.conteiner}>
-      <h1>Cadastro Metereológico</h1>
+      <h1 id={styles.title} >Cadastro Metereológico</h1>
       <form onSubmit={handleSubmit}>
         <section className={styles.section1}>
           <div className={styles.inpt_box}>
@@ -84,13 +84,10 @@ export default function Cadastrar() {
                 value={tempoNoite}
                 onChange={(event) => setTempoNoite(event.target.value)}
               >
-                <option value="SOL" selected>
-                  Sol
-                </option>
-                <option value="CHUVA">Chuva</option>
+                <option value="CHUVA" selected>Chuva</option>
                 <option value="NUBLADO">Nublado</option>
                 <option value="TEMPESTADE">Tempestade</option>
-                <option value="SOL_COM_NUVENS">Sol com nuvens</option>
+                <option value="LIMPO">Limpo</option>
               </select>
             </div>
 
@@ -138,7 +135,7 @@ export default function Cadastrar() {
                   required
                   type="number"
                   name="umidade"
-                  value={umidade}
+                  value={umidade} 
                   onChange={(event) => setUmidade(event.target.value)}
                 />
                 <span>%</span>

@@ -3,8 +3,9 @@ import axios from "axios";
 const getALL = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:4767/api/v1/meteorologia"
+      "http://localhost:4767/api/v1/meteorologia/all"
     );
+    console.log(response.data)
     return response.data;
   } catch (error) {
     console.error(error);
@@ -14,11 +15,23 @@ const getALL = async () => {
 const getByCity = async (city: String) => {
   city = city.toLocaleLowerCase()
   try {
-    const responseByCiry = await axios.get(
-      "http://localhost:4767/api/v1/meteorologia/" + city
+    const responseByCity = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/" + city+ "/all"
     );
-    console.log(responseByCiry.data.content);
-    return responseByCiry.data.content;
+    return responseByCity.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getByCityToday = async (city: String) => {
+  city = city.toLocaleLowerCase()
+  try {
+    const responseDataCityToday = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/" + city+ "/hoje"
+    );
+    console.log(responseDataCityToday.data)
+    return responseDataCityToday.data;
   } catch (error) {
     console.error(error);
   }
@@ -79,4 +92,5 @@ export const MeteorologicalService = {
   create,
   updateById,
   deleteById,
+  getByCityToday,
 };
