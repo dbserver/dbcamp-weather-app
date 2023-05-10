@@ -1,0 +1,101 @@
+.conteiner {
+  max-width: 90%;
+  margin: auto;
+}
+.conteiner input {
+  border: none;
+  background-color: #ffffff00;
+  height: 57px;
+  width: 90%;
+  color: white;
+  font-size: 20px;
+}
+.section1 {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.section1 #title {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+.section1 #title h1 {
+  margin: 0;
+}
+.section1 .inpt_box {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.section1 .inpt_style {
+  border-radius: 15px;
+  height: 57px;
+  width: 500px;
+  font-size: 20px;
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  border: none;
+  color: white;
+  padding-left: 20px;
+  box-sizing: border-box;
+  display: flex;
+  gap: 21px;
+  align-items: center;
+}
+.section1 .lupa_home_icon {
+  background-image: url(../../assets/lupa-home-image.png);
+  height: 22.1px;
+  width: 20.1px;
+  display: inline-block;
+}
+.section1 #gps_icon_box {
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  height: 45px;
+  width: 47px;
+  border-radius: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section1 .gps_icon {
+  background-image: url(../../assets/gps-image.png);
+  height: 22px;
+  width: 16px;
+  display: inline-block;
+}
+
+.section2 .destaque{
+  display: flex;
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
+  justify-content: space-between;
+  height: 190px;
+  border-radius: 15px;
+  margin-top: 25px;
+  box-sizing: border-box;
+  padding: 20px 90px;
+}
+.section2 .destaque #col1{
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  flex-wrap: wrap;
+}
+
+.section2 .destaque #col1 img{
+  width: 170px;
+}
+.section2 .destaque #col1 #temperatura_maxima{
+  font-size: 55px;
+}
+.section2 .destaque #col1 #separador{
+  font-size: 35px;
+}
+.section2 .destaque #col1 #temperatura_minima{
+  font-size: 25px;
+}
+.section2 .destaque #col2{
+  display: flex;
+  align-items: center;
+  gap: 105px;
+  flex-wrap: wrap;
+}

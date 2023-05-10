@@ -1,16 +1,28 @@
 import axios from "axios";
 
 const getALL = async () => {
-
   try {
-    const response = await axios.get("http://localhost:4767/api/v1/meteorologia");
+    const response = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia"
+    );
     return response.data;
   } catch (error) {
     console.error(error);
   }
 };
 
-const getByCity = (city: String) => {};
+const getByCity = async (city: String) => {
+  city = city.toLocaleLowerCase()
+  try {
+    const responseByCiry = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/" + city
+    );
+    console.log(responseByCiry.data.content);
+    return responseByCiry.data.content;
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 const create = (
   cidade: string,
@@ -23,6 +35,8 @@ const create = (
   umidade: number,
   ventos: number
 ) => {
+  cidade = cidade.toLowerCase()
+
   axios
     .post("http://localhost:4767/api/v1/meteorologia", {
       cidade: cidade,
@@ -47,7 +61,17 @@ const create = (
 
 const updateById = () => {};
 
-const deleteById = () => {};
+const deleteById = (id: number) => {
+  axios
+    .delete("http://localhost:4767/api/v1/meteorologia/" + id)
+    .then((response) => {
+      alert("Você apagou um registro!")
+    })
+    .catch((error) => {
+      alert("Sua tentativa de apagar um registro falhou!")
+      console.log(error);
+    });
+};
 
 export const MeteorologicalService = {
   getALL,

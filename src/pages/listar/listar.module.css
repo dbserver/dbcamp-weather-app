@@ -1,0 +1,80 @@
+.conteiner {
+  max-width: 90%;
+  margin: auto;
+}
+.section1 .inpt_box{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.section1 .inpt_box .inpt_style{
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+.section1 input {
+  border-radius: 15px;
+  height: 57px;
+  width: 370px;
+  font-size: 20px;
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  border: none;
+  color: white;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+.section1 #lupa_icon{
+  height: 45px;
+  width: 45px;
+  background-image: url(../../assets/lupa-image.png);
+}
+.section2 {
+  margin-top: 35px;
+}
+.section2 .tabela{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  max-width: 90%;
+}
+.section2 .list{
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.section2 .icons{
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+.section2 #trash_icon{
+  display: inline-block;
+  height: 38px;
+  width: 38px;
+  background-image: url(../../assets/trash-image.png);
+  cursor: pointer;
+}
+.section2 #edit_icon{
+  display: inline-block;
+  height: 36px;
+  width: 36px;
+  background-image: url(../../assets/edit-image.png);
+  cursor: pointer;
+}
+.section2 .elementList{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 15px;
+  height: 57px;
+  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  border: none;
+  box-sizing: border-box;
+  padding: 0 90px 0 32px;
+}
+.section2 .elementList h2{
+  font-size: 20px;
+  font-weight: 400;
+  color: white;
+}

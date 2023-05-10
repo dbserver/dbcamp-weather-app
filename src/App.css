@@ -11,6 +11,11 @@ body {
   min-height: 100vh;
 }
 
+h1,h2,h3,h4,span,div{
+  margin: 0;
+  padding: 0;
+}
+
 h1 {
   font-size: 32px;
   font-weight: 600;
