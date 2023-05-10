@@ -20,7 +20,7 @@
   height: 57px;
   width: 370px;
   font-size: 20px;
-  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
   border: none;
   color: white;
   padding-left: 20px;
@@ -71,7 +71,8 @@
   align-items: center;
   border-radius: 15px;
   height: 57px;
-  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  background: linear-gradient(180deg, rgba(149, 125, 205, 0.29) 0%, #523D7F 100%);
+
   border: none;
   box-sizing: border-box;
   padding: 0 90px 0 32px;

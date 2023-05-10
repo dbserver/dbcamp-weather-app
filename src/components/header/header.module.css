@@ -15,6 +15,9 @@
   color: white;
   font-weight: 600;
 }
+.header a:hover{
+  border-bottom: 2px solid white;
+}
 
 .header nav {
   display: flex;

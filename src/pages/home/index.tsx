@@ -14,8 +14,6 @@ export default function Home() {
   const [dataCityList, setDataCityList] = useState([]);
   const [cidade, setCidade] = useState("salvador");
   const [dataCidadeHoje, setDataCidadeHoje] = useState <MeteriologicalData>();
-  const [temperaturaMaxima, setTemperaturaMaxima] = useState(36);
-  const [temperaturaMinima, setTemperaturaMinima] = useState(27);
 
   useEffect(() => {
     findByCity();
@@ -79,7 +77,7 @@ export default function Home() {
 
       <section className={styles.section2}>
         <div className={styles.destaque}>
-          <div id={styles.col1}>
+          <div id="col1">
             <img src={climaSol} alt="clima" />
             <div className={styles.temperatura_box}>
               <span id={styles.temperatura_maxima}>{dataCidadeHoje?.temperaturaMaxima}º</span>
