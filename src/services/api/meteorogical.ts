@@ -12,6 +12,7 @@ const getALL = async () => {
 };
 
 const getByCity = async (city: String) => {
+  city = city.toLocaleLowerCase()
   try {
     const responseByCiry = await axios.get(
       "http://localhost:4767/api/v1/meteorologia/" + city
@@ -34,6 +35,8 @@ const create = (
   umidade: number,
   ventos: number
 ) => {
+  cidade = cidade.toLowerCase()
+
   axios
     .post("http://localhost:4767/api/v1/meteorologia", {
       cidade: cidade,

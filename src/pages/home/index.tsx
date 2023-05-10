@@ -85,7 +85,12 @@ export default function Home() {
         </div>
 
         <div className="list_registers">
-          
+        {dataCityList.map((item: MeteriologicalData) => (
+            <div className={styles.elementList} key={item.id}>
+              <h2>{item.cidade}</h2>
+              
+            </div>
+          ))}
         </div>
       </section>
     </main>

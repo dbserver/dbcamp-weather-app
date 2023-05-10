@@ -5,7 +5,7 @@ import styles from "./listar.module.css";
 
 export default function Listar() {
   const [dataCityList, setDataCityList] = useState([]);
-  const [cidade, setCidade] = useState("");
+  const [cidade, setCidade] = useState("salvador");
 
   const findByCity = async () => {
     const result = await MeteorologicalService.getByCity(cidade);
