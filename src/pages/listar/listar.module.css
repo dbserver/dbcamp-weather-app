@@ -36,7 +36,6 @@
   justify-content: space-between;
   flex-wrap: nowrap;
   max-width: 90%;
-  margin: auto;
 }
 .section2 .list{
   margin-top: 25px;
@@ -47,18 +46,21 @@
 .section2 .icons{
   display: flex;
   align-items: center;
+  gap: 25px;
 }
 .section2 #trash_icon{
   display: inline-block;
   height: 38px;
   width: 38px;
   background-image: url(../../assets/trash-image.png);
+  cursor: pointer;
 }
 .section2 #edit_icon{
   display: inline-block;
   height: 36px;
   width: 36px;
   background-image: url(../../assets/edit-image.png);
+  cursor: pointer;
 }
 .section2 .elementList{
   display: flex;

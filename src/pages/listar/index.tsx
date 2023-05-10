@@ -16,6 +16,10 @@ export default function Listar() {
     }
   };
 
+  const deleteById = (id: number) => {
+    MeteorologicalService.deleteById(id)
+  }
+
   return (
     <main className={styles.conteiner}>
       <section className={styles.section1}>
@@ -47,7 +51,7 @@ export default function Listar() {
               <h2>{item.data}</h2>
               <div className={styles.icons}>
                 <span id={styles.edit_icon}></span>
-                <span id={styles.trash_icon}></span>
+                <span id={styles.trash_icon} onClick={ () => deleteById(item.id)}></span>
               </div>
             </div>
           ))}
