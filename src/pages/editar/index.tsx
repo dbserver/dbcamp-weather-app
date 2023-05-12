@@ -1,11 +1,9 @@
-import { useState } from "react";
-import styles from "./cadastrar.module.css";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import styles from "./editar.module.css";
 import { MeteorologicalService } from "../../services/api/meteorogical";
 import { useParams } from "react-router";
-import { number } from "yargs";
 
-export default function Cadastrar() {
+export default function Editar() {
   
   const [cidade, setCidade] = useState<string>("salvador");
   const [data, setData] = useState<string>("");
@@ -17,11 +15,21 @@ export default function Cadastrar() {
   const [umidade, setUmidade] = useState<any>();
   const [ventos, setVentos] = useState<any>();
   
+  const idOnPath:number = Number(useParams().id)
+  
+  useEffect(() => {
+    
+  }, []);
+  const findById = () =>{
+    
+  }
+
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     try {
-      MeteorologicalService.create(
+      MeteorologicalService.updateById(
+        idOnPath,
         cidade,
         data,
         tempoDia,
@@ -32,15 +40,15 @@ export default function Cadastrar() {
         umidade,
         ventos
       );
-      alert("Parabéns você cadastrou um registro");
+      alert("Parabéns você atualizou um registro");
     } catch {
-      alert("Ops, ocorreu um erro ao realizar seu cadastro.");
+        alert("Infelizmente ouve um erro e você não conseguiu atualizar este registro");
     }
   }
 
   return (
     <main className={styles.conteiner}>
-      <h1 className={styles.title}>Cadastro Metereológico</h1>
+      <h1 className={styles.title}>Editar Cadastro Metereológico</h1>
       <form onSubmit={handleSubmit}>
         <section className={styles.section1}>
           <div className={styles.inpt_box}>
