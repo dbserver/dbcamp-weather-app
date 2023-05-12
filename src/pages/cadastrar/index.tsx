@@ -2,21 +2,17 @@ import { useState } from "react";
 import styles from "./cadastrar.module.css";
 import axios from "axios";
 import { MeteorologicalService } from "../../services/api/meteorogical";
-import { useParams } from "react-router";
-import { number } from "yargs";
 
 export default function Cadastrar() {
-  
-  const [cidade, setCidade] = useState<string>("salvador");
-  const [data, setData] = useState<string>("");
-  const [tempoDia, setTempoDia] = useState<string>("SOL");
-  const [tempoNoite, setTempoNoite] = useState<string>("CHUVA");
+  const [cidade, setCidade] = useState("salvador");
+  const [data, setData] = useState("");
+  const [tempoDia, setTempoDia] = useState("SOL");
+  const [tempoNoite, setTempoNoite] = useState("CHUVA");
   const [temperaturaMaxima, setTemperaturaMaxima] = useState<any>();
   const [temperaturaMinima, setTemperaturaMinima] = useState<any>();
   const [precipitacao, setPrecipitacao] = useState<any>();
   const [umidade, setUmidade] = useState<any>();
   const [ventos, setVentos] = useState<any>();
-  
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -32,7 +28,6 @@ export default function Cadastrar() {
         umidade,
         ventos
       );
-      alert("Parabéns você cadastrou um registro");
     } catch {
       alert("Ops, ocorreu um erro ao realizar seu cadastro.");
     }
@@ -40,7 +35,7 @@ export default function Cadastrar() {
 
   return (
     <main className={styles.conteiner}>
-      <h1 className={styles.title}>Cadastro Metereológico</h1>
+      <h1>Cadastro Metereológico</h1>
       <form onSubmit={handleSubmit}>
         <section className={styles.section1}>
           <div className={styles.inpt_box}>
