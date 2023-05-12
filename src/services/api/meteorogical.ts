@@ -64,15 +64,45 @@ const create = (
     })
     .then(function (response: any) {
       console.log(response);
-      alert("Parabéns você cadastrou um registro");
     })
     .catch(function (error: any) {
       console.error(error);
-      alert("Infelizmente você não conseguiu cadastrar um registro");
     });
 };
 
-const updateById = () => {};
+const updateById = (
+  id: number,
+  cidade: string,
+  data: string,
+  tempoDia: string,
+  tempoNoite: string,
+  temperaturaMaxima: number,
+  temperaturaMinima: number,
+  precipitacao: number,
+  umidade: number,
+  ventos: number
+) => {
+  cidade = cidade.toLowerCase()
+
+  axios
+    .post("http://localhost:4767/api/v1/meteorologia", {
+      id: id,
+      cidade: cidade,
+      data: data,
+      tempoDia: tempoDia,
+      tempoNoite: tempoNoite,
+      temperaturaMaxima: temperaturaMaxima,
+      temperaturaMinima: temperaturaMinima,
+      precipitacao: precipitacao,
+      umidade: umidade,
+      velocidadeVentos: ventos,
+    })
+    .then(function (response: any) {
+    })
+    .catch(function (error: any) {
+      console.error(error);
+    });
+};
 
 const deleteById = (id: number) => {
   axios

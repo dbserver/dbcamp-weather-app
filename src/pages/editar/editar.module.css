@@ -1,0 +1,132 @@
+.conteiner {
+    width: 95%;
+    margin: auto;
+  }
+  .title{
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  .section1 {
+    max-width: 770px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .section1 .inpt_box #cidade {
+    width: 370px;
+  }
+  .section1 .inpt_box #data {
+    width: 200px;
+  }
+  .section1 .inpt_box input {
+    border-radius: 15px;
+    max-height: 57px;
+    font-size: 20px;
+    background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+    border: none;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+  .section2 {
+    padding: 82px 53px 97px 17px;
+    border-radius: 15px;
+    margin-top: 60px;
+    background: linear-gradient(
+      180deg,
+      rgba(149, 125, 205, 0.29) 0%,
+      #523d7f 100%
+    );
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  .section2 input,
+  .section2 select {
+    color: white;
+    font-size: 20px;
+    background-color: rgba(255, 255, 255, 0);
+    border: none;
+    height: 57px;
+  }
+  .section2 span{
+    font-size: 24px;
+  }
+  .section2 #col1 select {
+    display: block;
+    margin-bottom: 30px;
+    margin-right: 25px;
+    background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+    padding-left: 20px;
+    box-sizing: border-box;
+    border-radius: 15px;
+    width: 160px;
+  }
+  .section2 #col1 option {
+    font-size: 16px;
+    background-color: #957dcd;
+    border: none;
+    color: white;
+    padding-left: 20px;
+  }
+  .section2 #col1 .inpt_box .turno {
+    border-radius: 15px;
+    margin-bottom: 30px;
+    height: 57px;
+    width: 90px;
+    font-size: 20px;
+    background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+    border: none;
+    color: white;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .section2 #col1 .inpt_box {
+    display: inline-block;
+  }
+  .section2 #col2 .inpt_style {
+    display: flex;
+    margin-bottom: 30px;
+    background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+    box-sizing: border-box;
+    border-radius: 15px;
+    width: 74px;
+    justify-content: center;
+    align-items: center;
+  }
+  .section2 #col2 .inpt_style input{
+    width: 35px;
+    padding: 0 2px 0 0;
+    text-align: right;
+  }
+  .section2 #col2 #temperaturaBox{
+    display: block;
+  }
+  .section2 #col2 .inlineBlock{
+    width: 360px;
+    display: flex;
+    justify-content:space-between;
+  }
+  
+  .buttonsBox button {
+    padding: 22px 80px;
+    background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+    border-radius: 100px;
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 24px;
+  }
+  .buttonsBox {
+    margin-top: 50px;
+    display: flex;
+    justify-content: end;
+    gap: 40px;
+  }
+  
+  @media (max-width: 600px) {
+    .section1 div{
+      display: none;
+    }
+  }

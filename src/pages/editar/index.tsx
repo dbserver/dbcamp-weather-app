@@ -1,11 +1,9 @@
-import { useState } from "react";
-import styles from "./cadastrar.module.css";
-import axios from "axios";
+import { useEffect, useState } from "react";
+import styles from "./editar.module.css";
 import { MeteorologicalService } from "../../services/api/meteorogical";
 import { useParams } from "react-router";
-import { number } from "yargs";
 
-export default function Cadastrar() {
+export default function Editar() {
   
   const [cidade, setCidade] = useState<string>("salvador");
   const [data, setData] = useState<string>("");
@@ -17,11 +15,21 @@ export default function Cadastrar() {
   const [umidade, setUmidade] = useState<any>();
   const [ventos, setVentos] = useState<any>();
   
+  const idOnPath:number = Number(useParams().id)
+  
+  useEffect(() => {
+    
+  }, []);
+  const findById = () =>{
+    
+  }
+
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
     try {
-      MeteorologicalService.create(
+      MeteorologicalService.updateById(
+        idOnPath,
         cidade,
         data,
         tempoDia,
@@ -32,19 +40,15 @@ export default function Cadastrar() {
         umidade,
         ventos
       );
-      alert("Parabéns você cadastrou um registro");
+      alert("Parabéns você atualizou um registro");
     } catch {
-      alert("Ops, ocorreu um erro ao realizar seu cadastro.");
+        alert("Infelizmente ouve um erro e você não conseguiu atualizar este registro");
     }
   }
 
   return (
     <main className={styles.conteiner}>
-<<<<<<< HEAD
-      <h1 id={styles.title} >Cadastro Metereológico</h1>
-=======
-      <h1 className={styles.title}>Cadastro Metereológico</h1>
->>>>>>> 14719047b835be58c96eadb0be76914a39b26124
+      <h1 className={styles.title}>Editar Cadastro Metereológico</h1>
       <form onSubmit={handleSubmit}>
         <section className={styles.section1}>
           <div className={styles.inpt_box}>
@@ -93,10 +97,13 @@ export default function Cadastrar() {
                 value={tempoNoite}
                 onChange={(event) => setTempoNoite(event.target.value)}
               >
-                <option value="CHUVA" selected>Chuva</option>
+                <option value="SOL" selected>
+                  Sol
+                </option>
+                <option value="CHUVA">Chuva</option>
                 <option value="NUBLADO">Nublado</option>
                 <option value="TEMPESTADE">Tempestade</option>
-                <option value="LIMPO">Limpo</option>
+                <option value="SOL_COM_NUVENS">Sol com nuvens</option>
               </select>
             </div>
 
@@ -144,7 +151,7 @@ export default function Cadastrar() {
                   required
                   type="number"
                   name="umidade"
-                  value={umidade} 
+                  value={umidade}
                   onChange={(event) => setUmidade(event.target.value)}
                 />
                 <span>%</span>

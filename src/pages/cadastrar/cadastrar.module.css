@@ -5,6 +5,10 @@
 #title{
   margin-bottom: 50px;
 }
+.title{
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
 .section1 {
   max-width: 770px;
   display: flex;
