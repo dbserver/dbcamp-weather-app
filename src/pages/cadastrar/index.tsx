@@ -40,11 +40,8 @@ export default function Cadastrar() {
 
   return (
     <main className={styles.conteiner}>
-<<<<<<< HEAD
-      <h1 id={styles.title} >Cadastro Metereológico</h1>
-=======
       <h1 className={styles.title}>Cadastro Metereológico</h1>
->>>>>>> 14719047b835be58c96eadb0be76914a39b26124
+
       <form onSubmit={handleSubmit}>
         <section className={styles.section1}>
           <div className={styles.inpt_box}>

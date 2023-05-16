@@ -74,23 +74,23 @@
   box-sizing: border-box;
   padding: 20px 90px;
 }
-.section2 .destaque #col1 {
+.section2 .destaque .col1 {
   display: flex;
   align-items: center;
   gap: 36px;
   flex-wrap: wrap;
 }
 
-.section2 .destaque #col1 img {
+.section2 .destaque .col1 img {
   width: 170px;
 }
-.section2 .destaque #col1 #temperatura_maxima {
+.section2 .destaque .col1 #temperatura_maxima {
   font-size: 55px;
 }
-.section2 .destaque #col1 #separador {
+.section2 .destaque .col1 #separador {
   font-size: 35px;
 }
-.section2 .destaque #col1 #temperatura_minima {
+.section2 .destaque .col1 #temperatura_minima {
   font-size: 25px;
 }
 .section2 .destaque #col2 {

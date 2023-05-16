@@ -12,13 +12,25 @@ const getALL = async () => {
   }
 };
 
+const getById = async (id: number) => {
+  try {
+    const responseById = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/recuperar/" + id);
+
+    return responseById.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
 const getByCity = async (city: String) => {
   city = city.toLocaleLowerCase()
   try {
     const responseByCity = await axios.get(
-      "http://localhost:4767/api/v1/meteorologia/" + city+ "/all"
+      "http://localhost:4767/api/v1/meteorologia/" + city+ "/semana"
     );
-    return responseByCity.data;
+
+    return responseByCity.data.content;
   } catch (error) {
     console.error(error);
   }
@@ -85,7 +97,7 @@ const updateById = (
   cidade = cidade.toLowerCase()
 
   axios
-    .post("http://localhost:4767/api/v1/meteorologia", {
+    .put("http://localhost:4767/api/v1/meteorologia", {
       id: id,
       cidade: cidade,
       data: data,
@@ -123,4 +135,5 @@ export const MeteorologicalService = {
   updateById,
   deleteById,
   getByCityToday,
+  getById,
 };

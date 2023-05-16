@@ -4,26 +4,39 @@ import { MeteorologicalService } from "../../services/api/meteorogical";
 import { useParams } from "react-router";
 
 export default function Editar() {
-  
-  const [cidade, setCidade] = useState<string>("salvador");
+  const [cidade, setCidade] = useState<string>("");
   const [data, setData] = useState<string>("");
-  const [tempoDia, setTempoDia] = useState<string>("SOL");
-  const [tempoNoite, setTempoNoite] = useState<string>("CHUVA");
+  const [tempoDia, setTempoDia] = useState<string>("");
+  const [tempoNoite, setTempoNoite] = useState<string>("");
   const [temperaturaMaxima, setTemperaturaMaxima] = useState<any>();
   const [temperaturaMinima, setTemperaturaMinima] = useState<any>();
   const [precipitacao, setPrecipitacao] = useState<any>();
   const [umidade, setUmidade] = useState<any>();
   const [ventos, setVentos] = useState<any>();
-  
-  const idOnPath:number = Number(useParams().id)
-  
-  useEffect(() => {
-    
-  }, []);
-  const findById = () =>{
-    
-  }
 
+  const idOnPath: number = Number(useParams().id);
+
+  useEffect(() => {
+    findById(idOnPath);
+  }, []);
+
+  const findById = async (id:number) => {
+    const result = await MeteorologicalService.getById(id);
+    if (result != null) {
+      setCidade(result.cidade);
+      setData(result.data);
+      setPrecipitacao(result.precipitacao);
+      setTemperaturaMaxima(result.temperaturaMaxima);
+      setTemperaturaMinima(result.temperaturaMinima);
+      setTempoDia(result.tempoDia);
+      setTempoNoite(result.tempoNoite);
+      setUmidade(result.umidade);
+      setVentos(result.velocidadeVentos);
+
+    } else {
+      alert("O item escolhido não foi encontrado");
+    }
+  };
 
   function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
@@ -42,7 +55,9 @@ export default function Editar() {
       );
       alert("Parabéns você atualizou um registro");
     } catch {
-        alert("Infelizmente ouve um erro e você não conseguiu atualizar este registro");
+      alert(
+        "Infelizmente ouve um erro e você não conseguiu atualizar este registro"
+      );
     }
   }
 
@@ -129,34 +144,34 @@ export default function Editar() {
               </div>
             </div>
             <div className={styles.inlineBlock}>
-            <div className={styles.inpt_box}>
-              <label>Precipitação</label>
-              <div className={styles.inpt_style}>
-                <input
-                  className={styles.input_number_int}
-                  required
-                  type="number"
-                  name="precipitacao"
-                  value={precipitacao}
-                  onChange={(event) => setPrecipitacao(event.target.value)}
-                />
-                <span>%</span>
+              <div className={styles.inpt_box}>
+                <label>Precipitação</label>
+                <div className={styles.inpt_style}>
+                  <input
+                    className={styles.input_number_int}
+                    required
+                    type="number"
+                    name="precipitacao"
+                    value={precipitacao}
+                    onChange={(event) => setPrecipitacao(event.target.value)}
+                  />
+                  <span>%</span>
+                </div>
               </div>
-            </div>
-            <div className={styles.inpt_box}>
-              <label>Umidade</label>
-              <div className={styles.inpt_style}>
-                <input
-                  className={styles.input_number_int}
-                  required
-                  type="number"
-                  name="umidade"
-                  value={umidade}
-                  onChange={(event) => setUmidade(event.target.value)}
-                />
-                <span>%</span>
+              <div className={styles.inpt_box}>
+                <label>Umidade</label>
+                <div className={styles.inpt_style}>
+                  <input
+                    className={styles.input_number_int}
+                    required
+                    type="number"
+                    name="umidade"
+                    value={umidade}
+                    onChange={(event) => setUmidade(event.target.value)}
+                  />
+                  <span>%</span>
+                </div>
               </div>
-            </div>
             </div>
           </div>
 
@@ -193,9 +208,8 @@ export default function Editar() {
 
         <div className={styles.buttonsBox}>
           <button type="reset">Cancelar</button>
-          <button type="submit">Cadastrar</button>
+          <button type="submit">Salvar</button>
         </div>
-
       </form>
     </main>
   );

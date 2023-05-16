@@ -8,16 +8,14 @@ import gotaImage from "../../assets/gota-image.png";
 import ventoImage from "../../assets/vento-image.png";
 
 export default function Home() {
-  const [meteorologicalRegisterList, setMeteorologicalRegisterList] = useState(
-    []
-  );
+
+  const [meteorologicalRegisterList, setMeteorologicalRegisterList] = useState([]);
   const [dataCityList, setDataCityList] = useState([]);
   const [cidade, setCidade] = useState("salvador");
   const [dataCidadeHoje, setDataCidadeHoje] = useState <MeteriologicalData>();
 
   useEffect(() => {
     findByCity();
-    findDataCityToday();
   }, []);
 
   const findDataCityToday = async () => {
@@ -36,8 +34,8 @@ export default function Home() {
   const findByCity = async () => {
     const result = await MeteorologicalService.getByCity(cidade);
     if (result[0] != null) {
-      setDataCityList(result);
       findDataCityToday();
+      setDataCityList(result);
     } else {
       alert(
         "Nenhum registro de " +
@@ -77,7 +75,7 @@ export default function Home() {
 
       <section className={styles.section2}>
         <div className={styles.destaque}>
-          <div id="col1">
+          <div className={styles.col1}>
             <img src={climaSol} alt="clima" />
             <div className={styles.temperatura_box}>
               <span id={styles.temperatura_maxima}>{dataCidadeHoje?.temperaturaMaxima}º</span>
@@ -122,15 +120,5 @@ export default function Home() {
         </div>
       </section>
     </main>
-
-    // <div>
-    //   {meteorologicalRegisterList.map((item: MeteriologicalData ) => (
-    //     <div key={item.id}>
-    //       <h1>{item.cidade}</h1>
-    //       <h2>{item.tempo}</h2>
-    //       <p>{item.turno}</p>
-    //     </div>
-    //   ))}
-    // </div>
   );
 }
