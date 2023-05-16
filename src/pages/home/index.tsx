@@ -8,14 +8,15 @@ import gotaImage from "../../assets/gota-image.png";
 import ventoImage from "../../assets/vento-image.png";
 
 export default function Home() {
-
-  const [meteorologicalRegisterList, setMeteorologicalRegisterList] = useState([]);
+  const [meteorologicalRegisterList, setMeteorologicalRegisterList] = useState(
+    []
+  );
   const [dataCityList, setDataCityList] = useState([]);
   const [cidade, setCidade] = useState("salvador");
-  const [dataCidadeHoje, setDataCidadeHoje] = useState <MeteriologicalData>();
+  const [dataCidadeHoje, setDataCidadeHoje] = useState<MeteriologicalData>();
 
   useEffect(() => {
-    findByCity();
+    findWeekByCity();
   }, []);
 
   const findDataCityToday = async () => {
@@ -23,24 +24,26 @@ export default function Home() {
     if (result != null) {
       setDataCidadeHoje(result);
     } else {
+      setCidade("")
       alert(
         "Nenhum registro de " +
           cidade +
-          " foi encontrado para hoje, porfavor tente outra cidade"
+          " foi encontrado para hoje, tente outra cidade"
       );
     }
   };
 
-  const findByCity = async () => {
-    const result = await MeteorologicalService.getByCity(cidade);
-    if (result[0] != null) {
-      findDataCityToday();
+  const findWeekByCity = async () => {
+    findDataCityToday();
+    const result = await MeteorologicalService.getWeekByCity(cidade);
+    if (result != null) {
       setDataCityList(result);
     } else {
+      setDataCityList([]);
       alert(
-        "Nenhum registro de " +
+        "Nenhum registro da semana sequinte foi encontrado para " +
           cidade +
-          " foi encontrado, porfavor tente outra cidade"
+          ", tente outra cidade"
       );
     }
   };
@@ -58,7 +61,7 @@ export default function Home() {
             <div className={styles.inpt_style}>
               <span
                 className={styles.lupa_home_icon}
-                onClick={findByCity}
+                onClick={findWeekByCity}
               ></span>
               <input
                 type="text"
@@ -78,9 +81,13 @@ export default function Home() {
           <div className={styles.col1}>
             <img src={climaSol} alt="clima" />
             <div className={styles.temperatura_box}>
-              <span id={styles.temperatura_maxima}>{dataCidadeHoje?.temperaturaMaxima}º</span>
+              <span id={styles.temperatura_maxima}>
+                {dataCidadeHoje?.temperaturaMaxima}º
+              </span>
               <span id={styles.separador}>/</span>
-              <span id={styles.temperatura_minima}>{dataCidadeHoje?.temperaturaMinima}º</span>
+              <span id={styles.temperatura_minima}>
+                {dataCidadeHoje?.temperaturaMinima}º
+              </span>
             </div>
           </div>
           <div id={styles.col2}>

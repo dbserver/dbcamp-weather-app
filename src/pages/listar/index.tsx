@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { MeteorologicalService } from "../../services/api/meteorogical";
 import MeteriologicalData from "../../interfaces/Meteorological";
 import styles from "./listar.module.css";
+import { Link } from "react-router-dom";
 
 export default function Listar() {
   const [dataCityList, setDataCityList] = useState([]);
@@ -13,7 +14,7 @@ export default function Listar() {
 
   const findByCity = async () => {
     const result = await MeteorologicalService.getByCity(cidade);
-    if (result[0] != null) {
+    if (result != null) {
       setDataCityList(result);
     } else {
       alert("Nenhum registro de " + cidade + " foi encontrado");
@@ -63,7 +64,7 @@ export default function Listar() {
               <h2>{item.cidade}</h2>
               <h2 className={styles.data}>{item.data}</h2>
               <div className={styles.icons}>
-                <span id={styles.edit_icon}></span>
+                <Link to={"/editar/" + item.id}> <span id={styles.edit_icon}></span> </Link>
                 <span id={styles.trash_icon} onClick={ () => deleteById(item.id)}></span>
               </div>
             </div>

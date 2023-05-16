@@ -20,7 +20,7 @@ export default function Editar() {
     findById(idOnPath);
   }, []);
 
-  const findById = async (id:number) => {
+  const findById = async (id: number) => {
     const result = await MeteorologicalService.getById(id);
     if (result != null) {
       setCidade(result.cidade);
@@ -32,7 +32,6 @@ export default function Editar() {
       setTempoNoite(result.tempoNoite);
       setUmidade(result.umidade);
       setVentos(result.velocidadeVentos);
-
     } else {
       alert("O item escolhido não foi encontrado");
     }

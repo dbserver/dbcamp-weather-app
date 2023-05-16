@@ -20,10 +20,24 @@ const getById = async (id: number) => {
     return responseById.data;
   } catch (error) {
     console.error(error);
+    return null
   }
 };
 
 const getByCity = async (city: String) => {
+  city = city.toLocaleLowerCase()
+  try {
+    const responseByCity = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/" + city);
+
+    return responseByCity.data.content;
+  } catch (error) {
+    console.error(error);
+    return null
+  }
+};
+
+const getWeekByCity = async (city: String) => {
   city = city.toLocaleLowerCase()
   try {
     const responseByCity = await axios.get(
@@ -33,6 +47,7 @@ const getByCity = async (city: String) => {
     return responseByCity.data.content;
   } catch (error) {
     console.error(error);
+    return null
   }
 };
 
@@ -46,6 +61,7 @@ const getByCityToday = async (city: String) => {
     return responseDataCityToday.data;
   } catch (error) {
     console.error(error);
+    return null
   }
 };
 
@@ -76,11 +92,9 @@ const create = (
     })
     .then(function (response: any) {
       console.log(response);
-      alert("Parabéns você cadastrou um registro");
     })
     .catch(function (error: any) {
       console.error(error);
-      alert("Infelizmente você não conseguiu cadastrar um registro");
     });
 };
 
@@ -138,4 +152,5 @@ export const MeteorologicalService = {
   deleteById,
   getByCityToday,
   getById,
+  getWeekByCity,
 };
