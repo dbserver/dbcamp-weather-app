@@ -2,8 +2,8 @@ export default interface MeteriologicalData {
     id: number;
     cidade: string;
     data: string;
-    tempo: string;
-    turno: string;
+    tempoDia: string;
+    tempoNoite: string;
     temperaturaMaxima: number;
     temperaturaMinima: number;
     precipitacao: number; 

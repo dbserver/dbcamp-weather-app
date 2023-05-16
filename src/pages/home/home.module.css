@@ -64,7 +64,7 @@
   display: inline-block;
 }
 
-.section2 .destaque{
+.section2 .destaque {
   display: flex;
   background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
   justify-content: space-between;
@@ -74,28 +74,57 @@
   box-sizing: border-box;
   padding: 20px 90px;
 }
-.section2 .destaque #col1{
+.section2 .destaque .col1 {
   display: flex;
   align-items: center;
   gap: 36px;
   flex-wrap: wrap;
 }
 
-.section2 .destaque #col1 img{
+.section2 .destaque .col1 img {
   width: 170px;
 }
-.section2 .destaque #col1 #temperatura_maxima{
+.section2 .destaque .col1 #temperatura_maxima {
   font-size: 55px;
 }
-.section2 .destaque #col1 #separador{
+.section2 .destaque .col1 #separador {
   font-size: 35px;
 }
-.section2 .destaque #col1 #temperatura_minima{
+.section2 .destaque .col1 #temperatura_minima {
   font-size: 25px;
 }
-.section2 .destaque #col2{
+.section2 .destaque #col2 {
   display: flex;
   align-items: center;
   gap: 105px;
   flex-wrap: wrap;
+  text-align: center;
+}
+.section2 .list_registers{
+  margin: 35px auto 110px;
+  max-width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+}
+
+.section2 .elementList,
+.section2 .elementList .temperatura,
+.section2 .elementList .clima {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.section2 .elementList .temperatura {
+  display: flex;
+  justify-content: space-between;
+  gap: 34px;
+}
+
+.section2 .elementList .clima {
+  display: flex;
+  justify-content: space-between;
+  gap: 17px;
 }

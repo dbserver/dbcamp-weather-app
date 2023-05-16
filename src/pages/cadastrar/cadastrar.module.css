@@ -1,6 +1,10 @@
 .conteiner {
   width: 95%;
-  margin: auto;
+  margin: 50px auto 0;
+}
+
+#title{
+  margin-bottom: 50px;
 }
 .section1 {
   max-width: 770px;
@@ -27,11 +31,7 @@
   padding: 82px 53px 97px 17px;
   border-radius: 15px;
   margin-top: 60px;
-  background: linear-gradient(
-    180deg,
-    rgba(149, 125, 205, 0.29) 0%,
-    #523d7f 100%
-  );
+  background: linear-gradient(180deg, rgba(149, 125, 205, 0.29) 0%, #523D7F 100%);
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -51,7 +51,7 @@
   display: block;
   margin-bottom: 30px;
   margin-right: 25px;
-  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
   padding-left: 20px;
   box-sizing: border-box;
   border-radius: 15px;
@@ -70,7 +70,7 @@
   height: 57px;
   width: 90px;
   font-size: 20px;
-  background: linear-gradient(180deg, #957dcd 0%, #523d7f 100%);
+  background: linear-gradient(180deg, #957DCD 0%, #523D7F 100%);
   border: none;
   color: white;
   box-sizing: border-box;

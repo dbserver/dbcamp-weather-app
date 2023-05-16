@@ -3,9 +3,21 @@ import axios from "axios";
 const getALL = async () => {
   try {
     const response = await axios.get(
-      "http://localhost:4767/api/v1/meteorologia"
+      "http://localhost:4767/api/v1/meteorologia/all"
     );
+    console.log(response.data)
     return response.data;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getById = async (id: number) => {
+  try {
+    const responseById = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/recuperar/" + id);
+
+    return responseById.data;
   } catch (error) {
     console.error(error);
   }
@@ -14,11 +26,24 @@ const getALL = async () => {
 const getByCity = async (city: String) => {
   city = city.toLocaleLowerCase()
   try {
-    const responseByCiry = await axios.get(
-      "http://localhost:4767/api/v1/meteorologia/" + city
+    const responseByCity = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/" + city+ "/semana"
     );
-    console.log(responseByCiry.data.content);
-    return responseByCiry.data.content;
+
+    return responseByCity.data.content;
+  } catch (error) {
+    console.error(error);
+  }
+};
+
+const getByCityToday = async (city: String) => {
+  city = city.toLocaleLowerCase()
+  try {
+    const responseDataCityToday = await axios.get(
+      "http://localhost:4767/api/v1/meteorologia/" + city+ "/hoje"
+    );
+    console.log(responseDataCityToday.data)
+    return responseDataCityToday.data;
   } catch (error) {
     console.error(error);
   }
@@ -59,7 +84,39 @@ const create = (
     });
 };
 
-const updateById = () => {};
+const updateById = (
+  id: number,
+  cidade: string,
+  data: string,
+  tempoDia: string,
+  tempoNoite: string,
+  temperaturaMaxima: number,
+  temperaturaMinima: number,
+  precipitacao: number,
+  umidade: number,
+  ventos: number
+) => {
+  cidade = cidade.toLowerCase()
+
+  axios
+    .put("http://localhost:4767/api/v1/meteorologia", {
+      id: id,
+      cidade: cidade,
+      data: data,
+      tempoDia: tempoDia,
+      tempoNoite: tempoNoite,
+      temperaturaMaxima: temperaturaMaxima,
+      temperaturaMinima: temperaturaMinima,
+      precipitacao: precipitacao,
+      umidade: umidade,
+      velocidadeVentos: ventos,
+    })
+    .then(function (response: any) {
+    })
+    .catch(function (error: any) {
+      console.error(error);
+    });
+};
 
 const deleteById = (id: number) => {
   axios
@@ -79,4 +136,6 @@ export const MeteorologicalService = {
   create,
   updateById,
   deleteById,
+  getByCityToday,
+  getById,
 };
