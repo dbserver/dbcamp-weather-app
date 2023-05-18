@@ -51,7 +51,7 @@ export default function Home() {
   return (
     <main className={styles.conteiner}>
       <section className={styles.section1}>
-        <div id={styles.title}>
+        <div className={styles.title}>
           <h1>Hoje</h1>
         </div>
 
@@ -69,7 +69,7 @@ export default function Home() {
                 onChange={(event) => setCidade(event.target.value)}
               />
             </div>
-            <div id={styles.gps_icon_box}>
+            <div className={styles.gps_icon_box}>
               <span className={styles.gps_icon}></span>
             </div>
           </div>
@@ -81,27 +81,27 @@ export default function Home() {
           <div className={styles.col1}>
             <img src={climaSol} alt="clima" />
             <div className={styles.temperatura_box}>
-              <span id={styles.temperatura_maxima}>
+              <span className={styles.temperatura_maxima}>
                 {dataCidadeHoje?.temperaturaMaxima}º
               </span>
-              <span id={styles.separador}>/</span>
-              <span id={styles.temperatura_minima}>
+              <span className={styles.separador}>/</span>
+              <span className={styles.temperatura_minima}>
                 {dataCidadeHoje?.temperaturaMinima}º
               </span>
             </div>
           </div>
-          <div id={styles.col2}>
-            <div id={styles.guardachuva}>
+          <div className={styles.col2}>
+            <div className={styles.guardachuva}>
               <img src={guardachuvaImage} alt="Precipitação" />
               <h2>{dataCidadeHoje?.precipitacao}%</h2>
               <h3>Precipitação</h3>
             </div>
-            <div id={styles.guardachuva}>
+            <div className={styles.guardachuva}>
               <img src={gotaImage} alt="Umidade" />
               <h2>{dataCidadeHoje?.umidade}%</h2>
               <h3>Umidade</h3>
             </div>
-            <div id={styles.guardachuva}>
+            <div className={styles.guardachuva}>
               <img src={ventoImage} alt="Velocidade Vento" />
               <h2>{dataCidadeHoje?.velocidadeVentos}km/h</h2>
               <h3>Velocidade Vento</h3>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import styles from "./header.module.css";
 import { Link } from "react-router-dom";
 
@@ -10,14 +10,13 @@ export default function Header() {
   }
   
   function menuToggle() {
-    document.getElementById("menu")?.classList.toggle("colapse");
   }
 
   return (
     <header className={styles.header}>
-      <nav id="test">
+      <nav>
         <button onClick={menuToggle}>| | |</button>
-        <ul className={styles.menu} id="menu">
+        <ul className={styles.menu}>
           <li>
             <Link to={"/"}>Home</Link>
           </li>

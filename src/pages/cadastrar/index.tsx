@@ -43,7 +43,7 @@ export default function Cadastrar() {
             <label>Cidade</label>
             <input
               type="text"
-              id={styles.cidade}
+              className={styles.cidade}
               value={cidade}
               onChange={(event) => setCidade(event.target.value)}
             />
@@ -53,7 +53,7 @@ export default function Cadastrar() {
             <label>Data</label>
             <input
               type="date"
-              id={styles.data}
+              className={styles.data}
               value={data}
               onChange={(event) => setData(event.target.value)}
             />
@@ -61,7 +61,7 @@ export default function Cadastrar() {
         </section>
 
         <section className={styles.section2}>
-          <div className={styles.col} id={styles.col1}>
+          <div className={`${styles.col} ${styles.col1}`}>
             <div className={styles.inpt_box}>
               <label>Tempo</label>
               <select
@@ -99,8 +99,8 @@ export default function Cadastrar() {
             </div>
           </div>
 
-          <div className={styles.col} id={styles.col2}>
-            <div className={styles.inpt_box} id={styles.temperaturaBox}>
+          <div className={`${styles.col} ${styles.col2}`}>
+            <div className={`${styles.inpt_box} ${styles.temperaturaBox}`}>
               <label>Temperatura Máxima</label>
               <div className={styles.inpt_style}>
                 <input
@@ -145,8 +145,9 @@ export default function Cadastrar() {
             </div>
           </div>
 
-          <div className={styles.col} id={styles.col2}>
-            <div className={styles.inpt_box} id={styles.temperaturaBox}>
+          <div className={`${styles.col} ${styles.col2}`} >
+              
+            <div className={`${styles.inpt_box} ${styles.temperaturaBox}`}>
               <label>Temperatura Minima</label>
               <div className={styles.inpt_style}>
                 <input
