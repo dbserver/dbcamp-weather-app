@@ -69,7 +69,7 @@ export default function Editar() {
             <label>Cidade</label>
             <input
               type="text"
-              id={styles.cidade}
+              className={styles.cidade}
               value={cidade}
               onChange={(event) => setCidade(event.target.value)}
             />
@@ -79,7 +79,7 @@ export default function Editar() {
             <label>Data</label>
             <input
               type="date"
-              id={styles.data}
+              className={styles.data}
               value={data}
               onChange={(event) => setData(event.target.value)}
             />
@@ -87,7 +87,7 @@ export default function Editar() {
         </section>
 
         <section className={styles.section2}>
-          <div className={styles.col} id={styles.col1}>
+          <div className={`${styles.col} ${styles.col1}`}>
             <div className={styles.inpt_box}>
               <label>Tempo</label>
               <select
@@ -111,13 +111,10 @@ export default function Editar() {
                 value={tempoNoite}
                 onChange={(event) => setTempoNoite(event.target.value)}
               >
-                <option value="SOL" selected>
-                  Sol
-                </option>
-                <option value="CHUVA">Chuva</option>
+                <option value="CHUVA" selected>Chuva</option>
                 <option value="NUBLADO">Nublado</option>
                 <option value="TEMPESTADE">Tempestade</option>
-                <option value="SOL_COM_NUVENS">Sol com nuvens</option>
+                <option value="LIMPO">Limpo</option>
               </select>
             </div>
 
@@ -128,8 +125,8 @@ export default function Editar() {
             </div>
           </div>
 
-          <div className={styles.col} id={styles.col2}>
-            <div className={styles.inpt_box} id={styles.temperaturaBox}>
+          <div className={`${styles.col} ${styles.col2}`}>
+            <div className={`${styles.inpt_box} ${styles.temperaturaBox}`}>
               <label>Temperatura Máxima</label>
               <div className={styles.inpt_style}>
                 <input
@@ -143,39 +140,40 @@ export default function Editar() {
               </div>
             </div>
             <div className={styles.inlineBlock}>
-              <div className={styles.inpt_box}>
-                <label>Precipitação</label>
-                <div className={styles.inpt_style}>
-                  <input
-                    className={styles.input_number_int}
-                    required
-                    type="number"
-                    name="precipitacao"
-                    value={precipitacao}
-                    onChange={(event) => setPrecipitacao(event.target.value)}
-                  />
-                  <span>%</span>
-                </div>
+            <div className={styles.inpt_box}>
+              <label>Precipitação</label>
+              <div className={styles.inpt_style}>
+                <input
+                  className={styles.input_number_int}
+                  required
+                  type="number"
+                  name="precipitacao"
+                  value={precipitacao}
+                  onChange={(event) => setPrecipitacao(event.target.value)}
+                />
+                <span>%</span>
               </div>
-              <div className={styles.inpt_box}>
-                <label>Umidade</label>
-                <div className={styles.inpt_style}>
-                  <input
-                    className={styles.input_number_int}
-                    required
-                    type="number"
-                    name="umidade"
-                    value={umidade}
-                    onChange={(event) => setUmidade(event.target.value)}
-                  />
-                  <span>%</span>
-                </div>
+            </div>
+            <div className={styles.inpt_box}>
+              <label>Umidade</label>
+              <div className={styles.inpt_style}>
+                <input
+                  className={styles.input_number_int}
+                  required
+                  type="number"
+                  name="umidade"
+                  value={umidade} 
+                  onChange={(event) => setUmidade(event.target.value)}
+                />
+                <span>%</span>
               </div>
+            </div>
             </div>
           </div>
 
-          <div className={styles.col} id={styles.col2}>
-            <div className={styles.inpt_box} id={styles.temperaturaBox}>
+          <div className={`${styles.col} ${styles.col2}`} >
+              
+            <div className={`${styles.inpt_box} ${styles.temperaturaBox}`}>
               <label>Temperatura Minima</label>
               <div className={styles.inpt_style}>
                 <input

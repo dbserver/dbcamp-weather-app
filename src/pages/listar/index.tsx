@@ -37,7 +37,7 @@ export default function Listar() {
   return (
     <main className={styles.conteiner}>
       <section className={styles.section1}>
-        <h1 id={styles.title}>Lista de Cidades</h1>
+        <h1 className={styles.title}>Lista de Cidades</h1>
         <div className={styles.inpt_box}>
           <label>Cidade</label>
           <div className={styles.inpt_style}>
@@ -46,7 +46,7 @@ export default function Listar() {
               value={cidade}
               onChange={(event) => setCidade(event.target.value)}
             />
-            <span onClick={findByCity} id={styles.lupa_icon}></span>
+            <span onClick={findByCity} className={styles.lupa_icon}></span>
           </div>
         </div>
       </section>
@@ -64,8 +64,8 @@ export default function Listar() {
               <h2>{item.cidade}</h2>
               <h2 className={styles.data}>{item.data}</h2>
               <div className={styles.icons}>
-                <Link to={"/editar/" + item.id}> <span id={styles.edit_icon}></span> </Link>
-                <span id={styles.trash_icon} onClick={ () => deleteById(item.id)}></span>
+                <Link to={"/editar/" + item.id}> <span className={styles.edit_icon}></span> </Link>
+                <span className={styles.trash_icon} onClick={ () => deleteById(item.id)}></span>
               </div>
             </div>
           ))}
